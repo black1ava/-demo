@@ -1,11 +1,13 @@
-import React, { useState, useCallback } from 'react';
-import { Card, Form, TextField, Button, Stack, Toast, Frame } from '@shopify/polaris'
+import React, { useState, useCallback, useContext } from 'react';
+import { Card, Form, TextField, Button, Stack, Toast, Frame } from '@shopify/polaris';
+import { LoginContext } from '../App'
 
 function LoginPage() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginToastActive, setLoginToastActive] = useState(false);
+  const loginContext = useContext(LoginContext);
 
   const handleEmailChange = useCallback(value => setEmail(value), []);
 
@@ -24,12 +26,16 @@ function LoginPage() {
     if(email === 'test123@test.com' && password === 'test1234'){
 
       handleLoginToastToggle();
+
       handleEmailClear();
       handlePassowrdClear();
 
+      loginContext.handleLogin();
+      
+      window.location = '/companies';
     }
 
-  }, [email, password, handleLoginToastToggle, handleEmailClear, handlePassowrdClear]);
+  }, [email, password, handleLoginToastToggle, handleEmailClear, handlePassowrdClear, loginContext]);
 
 
   return (
