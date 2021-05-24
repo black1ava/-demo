@@ -20,3 +20,19 @@
 .text-field{
   width: 20em;
 }
+
+.user-menu-btn{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.nav-bar{
+  display: flex;
+  position: fixed;
+  width: 100%;
+}
+
+.user-menu{
+  margin-left: 5em;
+}

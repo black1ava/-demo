@@ -23,7 +23,7 @@ function LoginPage() {
 
   const handleSubmit = useCallback(() => {
 
-    if(email === 'test123@test.com' && password === 'test1234'){
+    if(email && password){
 
       handleLoginToastToggle();
 
